@@ -16,12 +16,6 @@
 
 app.js
 
-### 🔥 [Live]
-
-This app is deployed to heroku on the following bank
-
-**URL**: https://todo-js-node.herokuapp.com/
-
 ## ✍🏻 [Author]
 
 - Twitter : [@malsaslam97](https://twitter.com/malsaslam97)
