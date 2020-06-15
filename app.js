@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 
+// Boiler plate for form values and json
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 // Accessing the "router"
 const router = require("./router");
 
