@@ -6,7 +6,12 @@ exports.logout = function (req, res) {};
 
 exports.register = function (req, res) {
   let user = new User(req.body);
-  res.send("Thanks for trying to register!");
+  user.register();
+  if (user.errors.length) {
+    res.send(user.errors);
+  } else {
+    res.send("Registered!");
+  }
 };
 
 exports.home = function (req, res) {
