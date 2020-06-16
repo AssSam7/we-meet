@@ -1,4 +1,5 @@
 const express = require("express");
+
 const app = express();
 
 // Boiler plate for form values and json
@@ -17,4 +18,4 @@ app.set("view engine", "ejs");
 app.use("/", router);
 
 // Making our app listen to incoming requests
-app.listen(3000);
+module.exports = app;
