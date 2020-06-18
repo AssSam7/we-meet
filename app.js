@@ -1,6 +1,21 @@
 const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 const app = express();
+
+// Configuration of sessions
+let sessionOptions = session({
+  secret: "JS is so cool",
+  store: new MongoStore({ client: require("./db") }),
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24,
+    httpOnly: true,
+  },
+});
+app.use(sessionOptions);
 
 // Boiler plate for form values and json
 app.use(express.urlencoded({ extended: false }));

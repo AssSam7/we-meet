@@ -8,7 +8,7 @@ mongodb.connect(
   process.env.CONNECTIONSTRING,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, client) => {
-    module.exports = client.db();
+    module.exports = client;
     // Start our express app (Main Application)
     const app = require("./app");
     app.listen(process.env.PORT);
