@@ -13,5 +13,8 @@ router.post("/register", userController.register);
 // Login Route
 router.post("/login", userController.login);
 
+// Login Route
+router.post("/logout", userController.logout);
+
 // Export the router created
 module.exports = router;

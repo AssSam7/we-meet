@@ -1,6 +1,7 @@
 const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const flash = require("connect-flash");
 
 const app = express();
 
@@ -16,6 +17,7 @@ let sessionOptions = session({
   },
 });
 app.use(sessionOptions);
+app.use(flash());
 
 // Boiler plate for form values and json
 app.use(express.urlencoded({ extended: false }));
