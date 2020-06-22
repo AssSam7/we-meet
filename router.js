@@ -3,9 +3,12 @@ const router = express.Router();
 
 // Importing the user controller
 const userController = require("./controllers/userController");
+const postController = require("./controllers/postController");
 
 // Adding the routes
 router.get("/", userController.home);
+
+/***** User Related Routes *****/
 
 // Registration Route
 router.post("/register", userController.register);
@@ -13,8 +16,15 @@ router.post("/register", userController.register);
 // Login Route
 router.post("/login", userController.login);
 
-// Login Route
+// Logout Route
 router.post("/logout", userController.logout);
+
+/***** Post Related Routes *****/
+router.get(
+  "/create-post",
+  userController.mustBeLoggedIn,
+  postController.viewCreateScreen
+);
 
 // Export the router created
 module.exports = router;
