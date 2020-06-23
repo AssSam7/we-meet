@@ -19,11 +19,17 @@ router.post("/login", userController.login);
 // Logout Route
 router.post("/logout", userController.logout);
 
-/***** Post Related Routes *****/
+/***** Post  Related Routes *****/
 router.get(
   "/create-post",
   userController.mustBeLoggedIn,
   postController.viewCreateScreen
+);
+
+router.post(
+  "/create-post",
+  userController.mustBeLoggedIn,
+  postController.create
 );
 
 // Export the router created
