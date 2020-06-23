@@ -32,5 +32,7 @@ router.post(
   postController.create
 );
 
+router.get("/post/:id", postController.viewSingle);
+
 // Export the router created
 module.exports = router;
