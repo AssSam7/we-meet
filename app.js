@@ -20,6 +20,10 @@ app.use(sessionOptions);
 app.use(flash());
 
 app.use(function (req, res, next) {
+  // Flash Errors Globally
+  res.locals.errors = req.flash("errors");
+  res.locals.success = req.flash("success");
+
   // Make current user id available on the req object
   if (req.session.user) {
     req.visitorId = req.session.user._id;

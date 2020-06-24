@@ -2,6 +2,9 @@
 <%- include('includes/header') %>
 
 <div class="container py-md-5 container--narrow">
+  <!-- Flash messages re-usable template -->
+  <%- include('includes/flash') %>
+
   <div class="d-flex justify-content-between">
     <h2><%= post.title %></h2>
     <% if(post.isVisitorOwner) { %>

@@ -2,6 +2,9 @@
 <%- include('includes/header') %>
 
 <div class="container py-md-5 container--narrow">
+  <!-- Flash messages re-usable template -->
+  <%- include('includes/flash') %>
+
   <div class="text-center">
     <h2>Hello <strong><%= user.username %></strong>, your feed is empty.</h2>
     <p class="lead text-muted">
