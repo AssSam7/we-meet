@@ -34,6 +34,8 @@ router.post(
 
 router.get("/post/:id", postController.viewSingle);
 
+router.get("/post/:id/edit", postController.viewEditScreen);
+
 /***** Profile Related Routes *****/
 router.get(
   "/profile/:username",
