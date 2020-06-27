@@ -17,7 +17,11 @@
         title="Edit"
         ><i class="fas fa-edit"></i
       ></a>
-      <form class="delete-post-form d-inline" action="#" method="POST">
+      <form
+        class="delete-post-form d-inline"
+        action="/post/<%= post._id %>/delete"
+        method="POST"
+      >
         <button
           class="delete-post-button text-danger"
           data-toggle="tooltip"
@@ -39,7 +43,7 @@
   </p>
 
   <div class="body-content">
-    <%= post.body %>
+    <%- filterUserHTML(post.body) %>
   </div>
 </div>
 
