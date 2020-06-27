@@ -59,5 +59,8 @@ router.get(
   userController.profilePostsScreen
 );
 
+/***** Search Related Routes *****/
+router.post("/search", postController.search);
+
 // Export the router created
 module.exports = router;
