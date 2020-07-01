@@ -4,6 +4,7 @@ const router = express.Router();
 // Importing the user controller
 const userController = require("./controllers/userController");
 const postController = require("./controllers/postController");
+const followController = require("./controllers/followController");
 
 // Adding the routes
 router.get("/", userController.home);
@@ -61,6 +62,13 @@ router.get(
 
 /***** Search Related Routes *****/
 router.post("/search", postController.search);
+
+/***** Follow Related Routes *****/
+router.post(
+  "/addFollow/:username",
+  userController.mustBeLoggedIn,
+  followController.addFollow
+);
 
 // Export the router created
 module.exports = router;
