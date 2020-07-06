@@ -8,7 +8,7 @@
 
   <div class="row">
     <% posts.forEach(post => { %>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title" href="/post/<%= post._id %>">
@@ -37,9 +37,24 @@
                 >Read more</a
               >
             </span>
+
             <% } %>
           </p>
-          <a href="/post/<%= post._id %>" class="btn btn-primary">Visit post</a>
+          <p
+            class="card-text"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <a href="/post/<%= post._id %>" class="btn btn-primary"
+              >Visit post</a
+            >
+            <small class="text-muted text-right font-italic"
+              >Last updated <%= post.momentAgo %></small
+            >
+          </p>
         </div>
       </div>
     </div>

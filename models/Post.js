@@ -3,6 +3,7 @@ const followsCollection = require("../db").db().collection("follows");
 const ObjectID = require("mongodb").ObjectID;
 const User = require("./User");
 const sanitizeHTML = require("sanitize-html");
+const moment = require("moment");
 
 let Post = function (data, userId, requestedPostId) {
   this.data = data;
@@ -130,6 +131,8 @@ Post.reusablePostQuery = function (uniqueOperations, visitorId) {
         username: post.author.username,
         avatar: new User(post.author, true).avatar,
       };
+
+      post.momentAgo = moment(post.createdDate).fromNow();
       return post;
     });
 
