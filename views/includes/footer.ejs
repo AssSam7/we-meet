@@ -1,9 +1,14 @@
 <footer class="border-top text-center small text-muted py-3">
   <p class="m-0">
-    Copyright &copy; 2019 <a href="/" class="text-muted">OurApp</a>. All
+    Copyright &copy; 2020 <a href="https://www.linkedin.com/in/malsaslam97/" class="text-muted">Aslam Mohammed</a>. All
     rights reserved.
   </p>
 </footer>
+
+<% if(user) { %>
+  <div id="chat-wrapper" class="chat-wrapper shadow border-top border-left border-right"></div>
+  <script src="/socket.io/socket.io.js"></script>
+<% } %>
 
 <script
   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

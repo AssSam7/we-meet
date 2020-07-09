@@ -75,5 +75,34 @@ app.set("view engine", "ejs");
 // Using the routes created in the router
 app.use("/", router);
 
+// Making our app open for both express and socket.io
+const server = require("http").createServer(app);
+
+const io = require("socket.io")(server);
+
+io.use(function (socket, next) {
+  sessionOptions(socket.request, socket.request.res, next);
+});
+
+io.on("connection", function (socket) {
+  console.log("A new user connected!");
+  if (socket.request.session.user) {
+    let user = socket.request.session.user;
+
+    socket.emit("welcome", { username: user.username, avatar: user.avatar });
+
+    socket.on("chatMessageFromBrowser", function (data) {
+      socket.broadcast.emit("chatMessageFromServer", {
+        message: sanitizeHTML(data.message, {
+          allowedTags: [],
+          allowedAttributes: [],
+        }),
+        username: user.username,
+        avatar: user.avatar,
+      });
+    });
+  }
+});
+
 // Making our app listen to incoming requests
-module.exports = app;
+module.exports = server;
