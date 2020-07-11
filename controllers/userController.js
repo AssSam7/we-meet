@@ -2,6 +2,21 @@ const User = require("../models/User");
 const Post = require("../models/Post");
 const Follow = require("../models/Follow");
 
+exports.doesUsernameExist = function (req, res) {
+  User.findByUsername(req.body.username)
+    .then(() => {
+      res.json(true);
+    })
+    .catch(() => {
+      res.json(false);
+    });
+};
+
+exports.emailAlreadyTaken = async function (req, res) {
+  let emailBoolean = await User.emailAlreadyTaken(req.body.email);
+  res.json(emailBoolean);
+};
+
 exports.sharedProfileData = async function (req, res, next) {
   let isVisitorsProfile = false;
   let isFollowing = false;

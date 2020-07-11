@@ -20,6 +20,12 @@ router.post("/login", userController.login);
 // Logout Route
 router.post("/logout", userController.logout);
 
+// Username Exists Route
+router.post("/doesUsernameExist", userController.doesUsernameExist);
+
+// Email Already Taken Route
+router.post("/emailAlreadyTaken", userController.emailAlreadyTaken);
+
 /***** Post Related Routes *****/
 router.get(
   "/create-post",

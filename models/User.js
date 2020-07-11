@@ -165,4 +165,20 @@ User.findByUsername = function (username) {
   });
 };
 
+User.emailAlreadyTaken = function (email) {
+  return new Promise(async (resolve, reject) => {
+    if (typeof email != "string") {
+      resolve(false);
+      return;
+    }
+
+    let user = await usersCollection.findOne({ email: email });
+    if (user) {
+      resolve(true);
+    } else {
+      resolve(false);
+    }
+  });
+};
+
 module.exports = User;
