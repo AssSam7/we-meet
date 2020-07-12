@@ -2,7 +2,6 @@
 <%- include('includes/header') %>
 
 <div class="container py-md-5 container--narrow">
-  <!-- Flash messages re-usable template -->
   <%- include('includes/flash') %>
 
   <form action="/create-post" method="POST">
@@ -33,6 +32,8 @@
         type="text"
       ></textarea>
     </div>
+
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
 
     <button class="btn btn-primary">Save New Post</button>
   </form>

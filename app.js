@@ -3,36 +3,40 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const markdown = require("marked");
+const csrf = require("csurf");
+const app = express();
 const sanitizeHTML = require("sanitize-html");
 
-const app = express();
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-// Configuration of sessions
+app.use("/api", require("./router-api"));
+
 let sessionOptions = session({
-  secret: "JS is so cool",
+  secret: "JavaScript is sooooooooo coool",
   store: new MongoStore({ client: require("./db") }),
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24,
-    httpOnly: true,
-  },
+  cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true },
 });
+
 app.use(sessionOptions);
 app.use(flash());
 
 app.use(function (req, res, next) {
-  // Make markdown function available within EJS templates
+  // make our markdown function available from within ejs templates
   res.locals.filterUserHTML = function (content) {
     return sanitizeHTML(markdown(content), {
       allowedTags: [
         "p",
         "br",
         "ul",
+        "ol",
         "li",
         "strong",
-        "italic",
         "bold",
+        "i",
+        "em",
         "h1",
         "h2",
         "h3",
@@ -40,44 +44,52 @@ app.use(function (req, res, next) {
         "h5",
         "h6",
       ],
-      allowedAttributes: [],
+      allowedAttributes: {},
     });
   };
 
-  // Flash Errors Globally
+  // make all error and success flash messages available from all templates
   res.locals.errors = req.flash("errors");
   res.locals.success = req.flash("success");
 
-  // Make current user id available on the req object
+  // make current user id available on the req object
   if (req.session.user) {
     req.visitorId = req.session.user._id;
   } else {
-    req.visitorId = 0; // Then it's a guest user
+    req.visitorId = 0;
   }
 
-  // Make user session data from within view templates
+  // make user session data available from within view templates
   res.locals.user = req.session.user;
   next();
 });
 
-// Boiler plate for form values and json
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-
-// Accessing the "router"
 const router = require("./router");
 
-// Configuring the views and templating engine
 app.use(express.static("public"));
 app.set("views", "views");
 app.set("view engine", "ejs");
 
-// Using the routes created in the router
+app.use(csrf());
+app.use(function (req, res, next) {
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
 app.use("/", router);
 
-// Making our app open for both express and socket.io
-const server = require("http").createServer(app);
+app.use(function (err, req, res, next) {
+  if (err) {
+    if (err.code == "EBADCSRFTOKEN") {
+      req.flash("errors", "Cross site request forgery detected.");
+      req.session.save(() => res.redirect("/"));
+    } else {
+      res.render("404");
+    }
+  }
+});
 
+const server = require("http").createServer(app);
 const io = require("socket.io")(server);
 
 io.use(function (socket, next) {
@@ -85,7 +97,6 @@ io.use(function (socket, next) {
 });
 
 io.on("connection", function (socket) {
-  console.log("A new user connected!");
   if (socket.request.session.user) {
     let user = socket.request.session.user;
 
@@ -95,7 +106,7 @@ io.on("connection", function (socket) {
       socket.broadcast.emit("chatMessageFromServer", {
         message: sanitizeHTML(data.message, {
           allowedTags: [],
-          allowedAttributes: [],
+          allowedAttributes: {},
         }),
         username: user.username,
         avatar: user.avatar,
@@ -104,5 +115,4 @@ io.on("connection", function (socket) {
   }
 });
 
-// Making our app listen to incoming requests
 module.exports = server;
