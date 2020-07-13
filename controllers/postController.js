@@ -14,7 +14,7 @@ exports.create = function (req, res) {
     })
     .catch(function (errors) {
       errors.forEach((err) => req.flash("errors", err));
-      req.session.save(() => res.redirect("/"));
+      req.session.save(() => res.redirect("/create-post"));
     });
 };
 
