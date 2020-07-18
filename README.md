@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to WeMeet 👋</h1>
-<p align="center" style="width: 70%; margin: 0 auto;">
+<p align="center">
   <img src="https://img.shields.io/badge/node-v12.3.1-blue">
   <img src="https://img.shields.io/badge/express-v4.17.1-orange">
   <img src="https://img.shields.io/badge/mongodb-v2.0.4-brightgreen">
@@ -9,6 +9,7 @@
   <img src="https://img.shields.io/badge/sessions-v1.17-green">
   <img src="https://img.shields.io/badge/JWT-v1.17-violet">
   <img src="https://img.shields.io/badge/EJS-v1.17-yellow">
+  <img src="https://img.shields.io/badge/moment-v2.27-blue">
   <a href="https://twitter.com/malsaslam97" target="_blank">
     <img alt="Twitter: malsaslam97" src="https://img.shields.io/twitter/follow/malsaslam97.svg?style=social" />
   </a>
