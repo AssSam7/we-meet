@@ -8,10 +8,10 @@
 
   <div class="row">
     <% posts.forEach(post => { %>
-    <div class="col-sm-4">
+    <div class="col-lg-4">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title" href="/post/<%= post._id %>">
+          <h5 class="card-title">
             <img
               class="avatar-tiny"
               src="<%= post.author.avatar %>"
@@ -20,7 +20,11 @@
               data-toggle="tooltip"
               data-placement="top"
             />
+            <% if(post.title.length > 15) { %>
+            <strong><%= post.title.substring(0, 15)+'...' %></strong>
+            <% } else { %>
             <strong><%= post.title %></strong>
+            <% } %>
           </h5>
           <p class="card-text">
             <% if(post.body.length < 70) { %> <%= post.body %> <% } else { %>

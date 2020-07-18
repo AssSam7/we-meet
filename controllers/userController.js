@@ -116,10 +116,11 @@ exports.home = async function (req, res) {
     // Fetch feed of posts for current user
     let posts = await Post.getFeed(req.session.user._id);
     console.log(posts);
-    res.render("home-dashboard", { posts: posts });
+    res.render("home-dashboard", { posts: posts, title: "Home / WeMeet" });
   } else {
     res.render("home-guest", {
       regErrors: req.flash("regErrors"),
+      title: "WeMeet / Explore",
     });
   }
 };
@@ -151,7 +152,7 @@ exports.profilePostsScreen = function (req, res) {
           followerCount: req.followerCount,
           followingCount: req.followingCount,
         },
-        title: `Profile for ${req.profileUser.username}`,
+        title: `${req.profileUser.username} / WeMeet`,
       });
     })
     .catch(function () {
@@ -174,6 +175,7 @@ exports.profileFollowersScreen = async function (req, res) {
         followerCount: req.followerCount,
         followingCount: req.followingCount,
       },
+      title: `People following ${req.profileUser.username}`,
     });
   } catch {
     res.render("404");
@@ -195,6 +197,7 @@ exports.profileFollowingScreen = async function (req, res) {
         followerCount: req.followerCount,
         followingCount: req.followingCount,
       },
+      title: `People followed by ${req.profileUser.username}`,
     });
   } catch {
     res.render("404");
