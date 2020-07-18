@@ -38,7 +38,7 @@ https://we-meet-app.herokuapp.com/
 - 🚶 Babel (Javscript compiler for polyfilling and transformation)
 - 📝 Git (Version Control System)
 
-### 🗂️ [Directory Structure]
+## 🗂️ [Directory Structure]
 - 📄 [Procfile](Procfile)
 - 📄 [app.js](app.js)
 - 📂 **controllers**
