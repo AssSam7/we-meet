@@ -17,9 +17,75 @@
 
 > This application is built on top of Javascript(ES6+), NodeJS, ExpressJS, MongoDB. Thanks🤝 to **Brad Schiff** for grounding me to build this app in his udemy course.
 
-### 🏠 [Homepage]
-
+## 🏠 [Homepage]
 app.js
+
+## 🔥 [Live URL]
+https://we-meet-app.herokuapp.com/
+
+## 🖥️ [Technology Stack]
+### 🏗️ [Development]
+- 🍭 Bootstrap 4 (CSS framework for responsive development)
+- 🗺️ Javascript (Both for front-end and back-end)
+- 🌴 Node.js (Javascript run-time environment)
+- 🍁 Express.js (Un-opioniated web framework for Node)
+- 🔍 EJS (Express Templating Engine)
+- 💼 MongoDB (NoSQL database)
+
+### 🧰 [Tools]
+- 🏬 NPM (Javascript grocery store)
+- 🧳 Webpack (Module bundling)
+- 🚶 Babel (Javscript compiler for polyfilling and transformation)
+- 📝 Git (Version Control System)
+
+### 🗂️ [Directory Structure]
+- 📄 [Procfile](Procfile)
+- 📄 [app.js](app.js)
+- 📂 **controllers**
+  - 📄 [followController.js](controllers/followController.js)
+  - 📄 [postController.js](controllers/postController.js)
+  - 📄 [userController.js](controllers/userController.js)
+- 📄 [db.js](db.js)
+- 📂 **frontend\-js**
+  - 📄 [main.js](frontend-js/main.js)
+  - 📂 **modules**
+    - 📄 [chat.js](frontend-js/modules/chat.js)
+    - 📄 [readMore.js](frontend-js/modules/readMore.js)
+    - 📄 [registrationForm.js](frontend-js/modules/registrationForm.js)
+    - 📄 [search.js](frontend-js/modules/search.js)
+- 📂 **models**
+  - 📄 [Follow.js](models/Follow.js)
+  - 📄 [Post.js](models/Post.js)
+  - 📄 [User.js](models/User.js)
+- 📄 [node_modules](node_modules)
+- 📄 [package\-lock.json](package-lock.json)
+- 📄 [package.json](package.json)
+- 📂 **public**
+  - 📄 [main\-bundled.js](public/main-bundled.js)
+  - 📄 [main.css](public/main.css)
+  - 📄 [we\-meet.ico](public/we-meet.ico)
+- 📄 [router\-api.js](router-api.js)
+- 📄 [router.js](router.js)
+- 📂 **views**
+  - 📄 [404.ejs](views/404.ejs)
+  - 📄 [create\-post.ejs](views/create-post.ejs)
+  - 📄 [edit\-post.ejs](views/edit-post.ejs)
+  - 📄 [home\-dashboard.ejs](views/home-dashboard.ejs)
+  - 📄 [home\-guest.ejs](views/home-guest.ejs)
+  - 📂 **includes**
+    - 📄 [flash.ejs](views/includes/flash.ejs)
+    - 📄 [footer.ejs](views/includes/footer.ejs)
+    - 📄 [header.ejs](views/includes/header.ejs)
+    - 📄 [profile\-shared.ejs](views/includes/profile-shared.ejs)
+  - 📄 [profile\-followers.ejs](views/profile-followers.ejs)
+  - 📄 [profile\-following.ejs](views/profile-following.ejs)
+  - 📄 [profile.ejs](views/profile.ejs)
+  - 📄 [single\-post\-screen.ejs](views/single-post-screen.ejs)
+- 📄 [webpack.config.js](webpack.config.js)
+
+
+## ⛏️ [Architecure] 
+<img src="https://hackernoon.com/drafts/126z19ld.png">
 
 ## ✍🏻 [Author]
 
