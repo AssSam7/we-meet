@@ -8,6 +8,7 @@
   <img src="https://img.shields.io/badge/socket.io-v2.3-black">
   <img src="https://img.shields.io/badge/sessions-v1.17-green">
   <img src="https://img.shields.io/badge/JWT-v1.17-violet">
+  <img src="https://img.shields.io/badge/EJS-v1.17-yellow">
   <a href="https://twitter.com/malsaslam97" target="_blank">
     <img alt="Twitter: malsaslam97" src="https://img.shields.io/twitter/follow/malsaslam97.svg?style=social" />
   </a>
