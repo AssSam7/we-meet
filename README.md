@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to WeMeet 👋</h1>
-<p align="center">
+<p align="center" style="width: 70%; margin: 0 auto;">
   <img src="https://img.shields.io/badge/node-v12.3.1-blue">
   <img src="https://img.shields.io/badge/express-v4.17.1-orange">
   <img src="https://img.shields.io/badge/mongodb-v2.0.4-brightgreen">
