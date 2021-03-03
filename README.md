@@ -15,7 +15,7 @@
   </a>
 </p>
 
->  WeMeet is a social platform for writers, bloggers, and users to express their thoughts in the form of posts. It is a personalized consumer product enriching user experience like any other social media application. I have learned the fundamentals of Node, Express, MongoDB, Socket.io, and full-stack javascript development through this app. Thanks🤝 to Brad Schiff for teaching me this in his course at Udemy.
+>  WeMeet is a social platform for writers, bloggers, and users to express their thoughts in the form of posts. It is a personalized consumer product enriching user experience like any other social media application. I have learned the fundamentals of Node, Express, MongoDB, Socket.io, and full-stack javascript development through this app. Thanks🤝 to Brad Schiff for grounding me thorughout the course.
 
 ## 🏠 [Homepage]
 app.js
